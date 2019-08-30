@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "mkdir -p ./node_modules && touch ./node_modules/.metadata_never_index",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start",
     "lint": "eslint .",
     "ios": "react-native run-ios --simulator=\"iPhone X\"",
     "xcode": "xed ios"
@@ -16,10 +16,14 @@
     "react-native-maps-directions": "^1.7.0"
   },
   "devDependencies": {
-    "babel-jest": "24.9.0",
-    "jest": "24.9.0",
-    "metro-react-native-babel-preset": "0.56.0",
-    "react-test-renderer": "16.6.1"
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.1.0",
+    "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"
