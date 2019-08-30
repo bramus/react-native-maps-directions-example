@@ -1,49 +1,105 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
+import MapView from 'react-native-maps';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+const { width, height } = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
+const LATITUDE = 37.771707;
+const LONGITUDE = -122.4053769;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+const GOOGLE_MAPS_APIKEY = '';
+
+import { NativeModules } from 'react-native';
+const reactNativeVersion = NativeModules.PlatformConstants.reactNativeVersion;
+const reactNativeVersionString = reactNativeVersion ? `${reactNativeVersion.major}.${reactNativeVersion.minor}.${reactNativeVersion.patch}${reactNativeVersion.prerelease ? ' pre-release' : ''}` : '';
+
+const reactNativeMapsVersion = require('./node_modules/react-native-maps/package.json').version;
+
+const styles = StyleSheet.create({
+  versionBox: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  versionText: {
+    padding: 4,
+    backgroundColor: '#FFF',
+    color: '#000',
+  },
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+class Example extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      coordinates: [
+        "Twitter HQ, Market Street, San Francisco, CA, USA",
+        "Apple Park Visitor Center",
+      ],
+    };
+
+    this.mapView = null;
+  }
+
+  onMapPress = (e) => {
+    this.setState({
+      coordinates: [
+        ...this.state.coordinates,
+        e.nativeEvent.coordinate,
+      ],
+    });
+  }
+
+  onReady = (result) => {
+    this.mapView.fitToCoordinates(result.coordinates, {
+      edgePadding: {
+        right: (width / 10),
+        bottom: (height / 10),
+        left: (width / 10),
+        top: (height / 10),
+      },
+    });
+  }
+
+  onError = (errorMessage) => {
+    console.log(errorMessage); // eslint-disable-line no-console
+  }
+
+  setDistance(distance, duration_in_traffic) {
+    // console.log('setDistance');
+    this.setState({
+      distance: parseFloat(distance),
+      durationInTraffic: parseInt(duration_in_traffic)
+    });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View style={StyleSheet.absoluteFill}>
+        <MapView
+          initialRegion={{
+            latitude: LATITUDE,
+            longitude: LONGITUDE,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }}
+          style={StyleSheet.absoluteFill}
+          ref={c => this.mapView = c} // eslint-disable-line react/jsx-no-bind
+          onPress={this.onMapPress}
+        >
+        </MapView>
+        <View style={styles.versionBox}>
+          <Text style={styles.versionText}>RN {reactNativeVersionString}, RNM: {reactNativeMapsVersion}</Text>
+        </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default Example;
