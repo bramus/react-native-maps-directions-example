@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "preinstall": "mkdir -p ./node_modules && touch ./node_modules/.metadata_never_index",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint .",
     "ios": "react-native run-ios --simulator=\"iPhone X\"",
     "xcode": "xed ios"
   },
   "dependencies": {
-    "react": "16.6.1",
-    "react-native": "0.59.10",
+    "react": "16.8.6",
+    "react-native": "0.60.5",
     "react-native-maps": "0.25.0",
     "react-native-maps-directions": "^1.7.0"
   },
