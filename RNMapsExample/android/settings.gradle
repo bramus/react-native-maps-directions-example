@@ -1,0 +1,3 @@
+rootProject.name = 'RNMapsExample'
+
+include ':app'
