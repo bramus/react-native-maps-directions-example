@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import MapView from 'react-native-maps';
 
+import MapViewDirections from 'react-native-maps-directions';
+
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 37.771707;
@@ -16,6 +18,7 @@ const reactNativeVersion = NativeModules.PlatformConstants.reactNativeVersion;
 const reactNativeVersionString = reactNativeVersion ? `${reactNativeVersion.major}.${reactNativeVersion.minor}.${reactNativeVersion.patch}${reactNativeVersion.prerelease ? ' pre-release' : ''}` : '';
 
 const reactNativeMapsVersion = require('./node_modules/react-native-maps/package.json').version;
+const reactNativeMapsDirectionsVersion = require('./node_modules/react-native-maps-directions/package.json').version;
 
 const styles = StyleSheet.create({
   versionBox: {
@@ -93,9 +96,27 @@ class Example extends Component {
           ref={c => this.mapView = c} // eslint-disable-line react/jsx-no-bind
           onPress={this.onMapPress}
         >
+          <MapViewDirections
+            origin={this.state.coordinates[0]}
+            destination={this.state.coordinates[this.state.coordinates.length-1]}
+            waypoints={this.state.coordinates.slice(1,-1)}
+            mode='DRIVING'
+            apikey={GOOGLE_MAPS_APIKEY}
+            language='en'
+            strokeWidth={4}
+            strokeColor="black"
+            onStart={(params) => {
+              console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+            }}
+            onReady={this.onReady}
+            onError={(errorMessage) => {
+              console.log(errorMessage);
+            }}
+            resetOnChange={false}
+          />
         </MapView>
         <View style={styles.versionBox}>
-          <Text style={styles.versionText}>RN {reactNativeVersionString}, RNM: {reactNativeMapsVersion}</Text>
+          <Text style={styles.versionText}>RN {reactNativeVersionString}, RNM: {reactNativeMapsVersion}, RNMD: {reactNativeMapsDirectionsVersion}</Text>
         </View>
       </View>
     );
