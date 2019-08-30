@@ -5,12 +5,13 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint .",
-    "ios": "react-native run-ios --simulator='iPhone X'",
+    "ios": "react-native run-ios --simulator=\"iPhone X\"",
     "xcode": "xed ios"
   },
   "dependencies": {
     "react": "16.6.1",
-    "react-native": "0.57.7"
+    "react-native": "0.57.7",
+    "react-native-maps": "0.25.0"
   },
   "devDependencies": {
     "babel-jest": "24.9.0",
