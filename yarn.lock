@@ -5162,10 +5162,10 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react-native-maps-directions@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/react-native-maps-directions/-/react-native-maps-directions-1.7.0.tgz#4f476dd42b31b228cf5ae817d5b0b4343516c401"
-  integrity sha512-mnLSJ2bD+esIGGN5xE9QXn3RW3C9hIRMU9ydYvSpVpnux81Q40EeI3wE/7j83CAKdm3zvVpOn8bvMv5wJiEj2Q==
+react-native-maps-directions@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-maps-directions/-/react-native-maps-directions-1.7.1.tgz#ccfcc3724da1f9931bce58e6eb30463c046b0aec"
+  integrity sha512-rIZVzcP6WJE3P1iBCIwNa9hPOBTL6Kqna5OGPUbrg3WZn7DEt2YWXvSYHoY4enXenJKETc61IaVjtypvU19K4g==
   dependencies:
     lodash.isequal "^4.5.0"
     prop-types "^15.6.0"

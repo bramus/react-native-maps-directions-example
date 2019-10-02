@@ -13,7 +13,7 @@
     "react": "16.8.6",
     "react-native": "0.60.6",
     "react-native-maps": "0.25.0",
-    "react-native-maps-directions": "^1.7.0"
+    "react-native-maps-directions": "^1.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
