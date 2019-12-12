@@ -106,7 +106,7 @@ class Example extends Component {
             strokeWidth={4}
             strokeColor="black"
             onStart={(params) => {
-              console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+              console.log(`Started routing between "${params.origin}" and "${params.destination}"${(params.waypoints.length ? " using waypoints: " + params.waypoints.join(', ') : "")}`);
             }}
             onReady={this.onReady}
             onError={(errorMessage) => {
