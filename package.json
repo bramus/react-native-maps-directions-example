@@ -7,8 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "lint": "eslint .",
-    "xcode": "xed ios",
-    "preinstall": "mkdir -p ./node_modules && touch ./node_modules/.metadata_never_index"
+    "xcode": "xed ios"
   },
   "dependencies": {
     "react": "16.9.0",
