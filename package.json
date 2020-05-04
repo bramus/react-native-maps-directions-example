@@ -10,8 +10,8 @@
     "xcode": "xed ios"
   },
   "dependencies": {
-    "react": "16.9.0",
-    "react-native": "0.61.5",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
     "react-native-maps": "^0.26.0",
     "react-native-maps-directions": "^1.7.5"
   },
