@@ -5133,9 +5133,9 @@ react-is@^16.9.0:
   integrity sha512-BXUMf9sIOPXXZWqr7+c5SeOKJykyVr2u0UDzEf4LNGc6taGkQe1A9DFD07umCIXz45RLr9oAAwZbAJ0Pkknfaw==
 
 react-native-maps-directions@^1.7.5:
-  version "1.7.5"
-  resolved "https://registry.yarnpkg.com/react-native-maps-directions/-/react-native-maps-directions-1.7.5.tgz#e0c404aae72364492efe7c5fca3c029b1789fa8d"
-  integrity sha512-789gpXjzjdZD46CxZJeSw9Z8/j1MUoJ8smOM1fk9qxA/vJJx2nIAJMjjCTlN7PaVCNtp6YdFNTTzwhKemS2uDQ==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-maps-directions/-/react-native-maps-directions-1.8.0.tgz#ced452efeb153e54dfb9315480b0ae9539dfbcc7"
+  integrity sha512-7KWfPrvPLU8VP2nEqsnrWlOuylidlRWWDdk3lqT5Nb1q87FeyzNgA7Ib7n6cZlQwH4usTRlJSnzNo/yQ3u4AZw==
   dependencies:
     lodash.isequal "^4.5.0"
     prop-types "^15.6.0"
